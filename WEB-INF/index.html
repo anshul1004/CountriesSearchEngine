@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html>
+  <head>
+	<meta name="author" content="Sasipreetam Morsa">
+    <title>Countries Search Engine</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="sample_response.js"></script>
+    <script src="script.js"></script>
+    
+      
+    <div>
+        <h1>Countries Search Engine</h1>
+    </div>
+      
+    <div>
+        <form id="form" onsubmit="return true;">
+            
+            <input type="text" placeholder="Enter query here..." id="UserInput"><br/>
+            
+            <p id="relevance">Relevance Model Options:</p>
+            <input type="radio" checked id="page_rank" name="type" value="page_rank">
+            <label id="page_rank_label" for="page_rank">Page Rank</label>
+            <input type="radio" id="hits" name="type" value="hits" class="margin">
+            <label id="hits_label" for="hits">HITS</label><br/>
+            <hr>
+            <p id="clustering">Clustering Options:</p>
+            <input type="radio" id="flat_clustering" name="type" value="flat_clustering">
+            <label id="flat_clustering_label" for="flat_clustering">Flat Clustering</label>
+            <input type="radio" id="hierarchical_clustering" name="type" value="hierarchical_clustering" class="margin">
+            <label id="hierarchical_clustering_label" for="hierarchical_clustering">Hierarchical Clustering</label><br>
+            <hr>
+            <p id="queryexp">Query Expansion Option:</p>
+            <input type="radio" id="association_qe" name="type" value="association_qe">
+            <label id="association_qe_label" for="association_qe">Association</label>
+            <input type="radio" id="metric_qe" name="type" value="metric_qe">
+            <label id="metric_qe_label" for="metric_qe">Metric</label>
+            <input type="radio" id="scalar_qe" name="type" value="scalar_qe">
+            <label id="scalar_qe_label" for="query_expansion">Scalar</label>
+            <br/>
+            <hr>
+            <input id="srch" type="button" value="Search" onclick="search(); queryToGoogleBing(); return false;">
+            <hr>
+            
+        </form><br/>
+    </div> 
+      
+    <script>
+        $(document).ready(function() {
+          $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+    </script>
+      
+    <div>
+        <iframe id="countries" width="90%" height="500"></iframe>
+    </div><br/><br/>
+      
+    <hr style="height: 15px; border-width: 5px; color: gray; background-color: blue">
+      
+    <h2 style="color: dodgerblue">Google Search</h2>
+      
+    <div>
+        <iframe id="google" src="https://www.google.com/search?igu=1&source=hp&ei=lheWXriYJ4PktQXN-LPgDA&q=" width="90%" height="500"></iframe>
+    </div><br/><br/>
+      
+    <hr style="height: 15px; border-width: 5px; color: gray; background-color: forestgreen">
+      
+    <h2 style="color: brown">Bing Search</h2>
+      
+    <div>
+        <iframe id="bing" src="https://www.bing.com/search?q=" width="90%" height="500"></iframe>
+    </div>
+      
+  </body>
+</html>
